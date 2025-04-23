@@ -1,0 +1,211 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: 'Lato', sans-serif;
+    background: linear-gradient(to bottom, rgb(145, 141, 239), rgb(240, 240, 255));
+    color: rgb(40, 50, 90);
+    min-height: 100vh;
+    padding-top: 70px; /* Prevent overlap with fixed nav */
+    animation: backgroundShift 8s infinite alternate; /* Dynamic background animation */
+}
+
+/* Navbar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    background-color: rgb(95, 39, 199); /* Calming purple */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 0 20px;
+    animation: slideDown 0.8s ease;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+nav ul li {
+    list-style: none;
+}
+
+nav ul li a {
+    color: lavender;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: rgb(192, 185, 11); /* Warm gold hover */
+    transform: scale(1.1);
+}
+
+/* Container */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 70px); /* Full height minus navbar */
+    animation: fadeIn 1.5s ease;
+}
+
+/* Form Container */
+.form-container {
+    background: linear-gradient(to bottom right, rgb(95, 39, 199), rgb(51, 229, 116)); /* Gradient for calm appeal */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+    overflow: hidden; /* To hide decorative elements */
+}
+
+.form-container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: rotate(45deg);
+    transition: all 0.6s ease;
+    z-index: 0; /* Behind form content */
+}
+
+.form-container:hover::before {
+    transform: rotate(90deg);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    color: white;
+    position: relative;
+    z-index: 1; /* Above ::before */
+}
+
+/* Input Group */
+.input-group {
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1rem;
+    color: white;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    outline: none;
+    background: rgba(255, 255, 255, 0.9);
+    transition: box-shadow 0.3s ease;
+}
+
+.input-group input:focus {
+    box-shadow: 0 0 10px rgba(51, 229, 116, 0.6); /* Green glow on focus */
+}
+
+/* Button */
+.btn {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(to right, rgb(51, 229, 116), rgb(39, 178, 90));
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(51, 229, 116, 0.4);
+}
+
+/* Toggle Text */
+.toggle-text {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: white;
+    position: relative;
+    z-index: 1;
+}
+
+.toggle-text a {
+    color: rgb(192, 185, 11);
+    text-decoration: none;
+}
+
+.toggle-text a:hover {
+    text-decoration: underline;
+}
+
+/* Form Visibility */
+.hidden-form {
+    display: none;
+}
+
+.active-form {
+    display: block;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes backgroundShift {
+    from {
+        background: linear-gradient(to bottom, rgb(145, 141, 239), rgb(240, 240, 255));
+    }
+    to {
+        background: linear-gradient(to bottom, rgb(175, 160, 255), rgb(250, 250, 255));
+    }
+}

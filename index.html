@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-SwasthMann | Mental Well-being Platform</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <div class="left">
+                <a href="index.html">E-SwasthMann</a>
+            </div>
+            <div class="right">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="faqs.html">FAQs</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Section -->
+    <main>
+        <!-- Left Section -->
+        <div class="leftSection">
+            <div class="infoBox">
+                <h2>Welcome to <span>E-SwasthMann</span></h2>
+                <p>
+                    E-SwasthMann is your trusted platform dedicated to promoting mental well-being. 
+                    Our mission is to empower individuals on their mental health journey by providing:
+                </p>
+                <ul>
+                    <li>Essential resources</li>
+                    <li>Personalized tools</li>
+                    <li>Expert guidance</li>
+                </ul>
+            </div>
+            <div class="infoBox">
+                <p>
+                    Join a supportive community where <strong>mental health matters</strong>. Take your first step 
+                    towards a healthier mind today with E-SwasthMann.
+                </p>
+                <p id="animatedText"></p>
+            </div>
+        </div>
+
+        <!-- Right Section -->
+        <div class="rightSection">
+            <img src="assets/mental health home page.jpg" alt="Mental Health Support" title="E-SwasthMann">
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 E-SwasthMann. All rights reserved. | <a href="privacy.html">Privacy Policy</a></p>
+    </footer>
+
+    <!-- Typed.js Script -->
+    <script>
+        var typed = new Typed('#animatedText', {
+            strings: [
+                "Join a compassionate community that values your mental wellness.",
+                "Discover a safe space where mental health comes first.",
+                "Take meaningful steps towards well-being with E-SwasthMann.",
+                "Connect with a supportive network that cares about your mental health."
+            ],
+            typeSpeed: 40,
+            backSpeed: 30,
+            loop: true
+        });
+    </script>
+</body>
+</html>

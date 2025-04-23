@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patient Portal - Mental Health Management</title>
+  <link rel="stylesheet" href="patient-styles.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Patient Portal</h1>
+      <p class="subtitle">Manage Your Mental Health with Ease</p>
+      <nav>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#appointment">Book Appointment</a>
+        <a href="#availability">Doctors Availability</a>
+        <a href="#history">History</a>
+        <a href="#resources">Resources</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="content-wrapper">
+      <!-- Main Content Section -->
+      <div class="main-content">
+        <!-- Patient Profile Block -->
+        <section id="dashboard">
+          <div class="dashboard-card profile-card">
+            <h3>Patient Profile</h3>
+            <div class="profile-info">
+              <div class="profile-detail">
+                <p><strong>Name:</strong> <span id="profile-name">Rohan Sen</span></p>
+                <p><strong>Age:</strong> <span id="profile-age">20</span></p>
+                <p><strong>Contact:</strong> <span id="profile-contact">9832768956</span></p>
+                <p><strong>Email:</strong> <span id="profile-email">patient2@gmail.com</span></p>
+              </div>
+              <button class="edit-button" onclick="openEditProfileModal()">Edit Profile</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Modal for Editing Profile -->
+        <div id="edit-profile-modal" class="modal">
+          <div class="modal-content">
+            <span class="close-button" onclick="closeEditProfileModal()">&times;</span>
+            <h2>Edit Profile</h2>
+            <form id="edit-profile-form">
+              <div class="form-group">
+                <label for="new-name">Name:</label>
+                <input type="text" id="new-name" required>
+              </div>
+              <div class="form-group">
+                <label for="new-age">Age:</label>
+                <input type="number" id="new-age" required>
+              </div>
+              <div class="form-group">
+                <label for="new-contact">Contact:</label>
+                <input type="text" id="new-contact" required>
+              </div>
+              <div class="form-group">
+                <label for="new-email">Email:</label>
+                <input type="email" id="new-email" required>
+              </div>
+              <button type="submit">Save Changes</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Recent Status Section -->
+        <section id="recent-status">
+          <h2>Recent Status</h2>
+          <div class="dashboard-card recent-status">
+            <p><strong>Status:</strong> Stable</p>
+            <p><strong>Last Update:</strong> September 10, 2024</p>
+            <p><strong>Notes:</strong> Continuing with prescribed medication and therapy sessions.</p>
+          </div>
+        </section>
+
+        <!-- Doctors Availability Section -->
+        <section id="availability">
+          <h2>Doctors Availability</h2>
+          <div class="availability-card">
+            <h3>Dr. Utsav Pandit</h3>
+            <p><strong>Monday:</strong> 9:00 AM - 12:00 PM</p>
+            <p><strong>Wednesday:</strong> 1:00 PM - 4:00 PM</p>
+            <p><strong>Friday:</strong> 10:00 AM - 3:00 PM</p>
+          </div>
+          <div class="availability-card">
+            <h3>Dr. Johnson</h3>
+            <p><strong>Tuesday:</strong> 8:00 AM - 12:00 PM</p>
+            <p><strong>Thursday:</strong> 2:00 PM - 5:00 PM</p>
+            <p><strong>Saturday:</strong> 9:00 AM - 1:00 PM</p>
+          </div>
+          <div class="availability-card">
+            <h3>Dr. Smith</h3>
+            <p><strong>Monday:</strong> 10:00 AM - 1:00 PM</p>
+            <p><strong>Wednesday:</strong> 3:00 PM - 6:00 PM</p>
+            <p><strong>Friday:</strong> 11:00 AM - 2:00 PM</p>
+          </div>
+        </section>
+      </div>
+
+      <!-- Sidebar Section -->
+      <aside class="sidebar">
+        <!-- Recent Activity Block -->
+        <section id="recent-activity">
+          <h2>Recent Activity</h2>
+          <div class="dashboard-card recent-activity">
+            <ul>
+              <li>September 10, 2024: Updated profile information.</li>
+              <li>September 8, 2024: Scheduled a new appointment with Dr. Pandit.</li>
+              <li>September 1, 2024: Completed a self-assessment.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Wellness Tips Block -->
+        <section id="wellness-tips">
+          <h2>Wellness Tips</h2>
+          <div class="dashboard-card wellness-tips">
+            <p>Take care of your mental health with these tips:</p>
+            <ul>
+              <li>Practice mindfulness and meditation to reduce stress.</li>
+              <li>Engage in regular physical exercise to boost mood.</li>
+              <li>Maintain a balanced diet rich in fruits and vegetables.</li>
+              <li>Seek professional help and support when needed.</li>
+            </ul>
+            <button onclick="toggleTips()">More Tips</button>
+            <div id="additional-tips" class="hidden">
+              <ul>
+                <li>Stay connected with loved ones.</li>
+              </ul>
+            </div>
+            <div class="self-assessment">
+              <a href="self-assessment.html"><button>Take Self-Assessment</button></a>
+            </div>
+          </div>
+        </section>
+      </aside>
+    </div>
+  </main>
+
+ <!-- Book Appointment Section -->
+<section id="appointment">
+  <h2>Book Appointment</h2>
+  <div class="appointment-card">
+    <h3>Select Doctor</h3>
+    <form id="appointment-form">
+      <div class="form-group">
+        <label for="doctor">Doctor:</label>
+        <select id="doctor" required>
+          <option value="">Select a doctor</option>
+          <option value="Dr. Utsav Pandit">Dr. Utsav Pandit</option>
+          <option value="Dr. Johnson">Dr. Johnson</option>
+          <option value="Dr. Smith">Dr. Smith</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="date">Appointment Date:</label>
+        <input type="date" id="date" required>
+      </div>
+      <div class="form-group">
+        <label for="time">Appointment Time:</label>
+        <input type="time" id="time" required>
+      </div>
+      <button type="submit">Book Appointment</button>
+    </form>
+  </div>
+</section>
+
+<!-- Upcoming Appointments Section -->
+<section id="upcoming-appointments">
+  <h2>Upcoming Appointments</h2>
+  <div id="appointments-list">
+    <p>No upcoming appointments.</p>
+  </div>
+</section>
+
+
+  <!-- Resources Section -->
+  <section id="resources">
+    <h2>Resources</h2>
+    <div class="resource-list">
+      <ul>
+        <li>
+          <a href="https://www.mentalhealth.gov/" target="_blank" rel="noopener">
+            <strong>Mental Health Guide: Tips and Resources</strong>
+          </a>
+          <p>Explore official resources and tips for maintaining mental health.</p>
+        </li>
+        <li>
+          <a href="https://www.nimh.nih.gov/health/topics/coping-with-traumatic-events" target="_blank" rel="noopener">
+            <strong>Coping Strategies: How to Manage Stress</strong>
+          </a>
+          <p>Learn effective coping techniques for managing stress and anxiety.</p>
+        </li>
+        <li>
+          <a href="https://www.psychologytoday.com/us/therapists" target="_blank" rel="noopener">
+            <strong>Find a Therapist Near You</strong>
+          </a>
+          <p>Search for licensed therapists based on location and specialties.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 Patient Portal - All Rights Reserved</p>
+  </footer>
+
+  <!-- JavaScript Section -->
+  <script>
+    // Handle Appointment Form Submission
+document.getElementById("appointment-form").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const doctor = document.getElementById("doctor").value;
+  const date = document.getElementById("date").value;
+  const time = document.getElementById("time").value;
+
+  if (doctor && date && time) {
+    const appointmentDetails = `${doctor} - ${date} at ${time}`;
+    const appointmentsList = document.getElementById("appointments-list");
+
+    // Check and remove the placeholder if it exists
+    const placeholder = appointmentsList.querySelector("p");
+    if (placeholder) {
+      placeholder.remove();
+    }
+
+    // Add new appointment
+    const newAppointment = document.createElement("li");
+    newAppointment.textContent = appointmentDetails;
+    appointmentsList.appendChild(newAppointment);
+
+    // Reset the form
+    document.getElementById("appointment-form").reset();
+  } else {
+    alert("Please fill in all fields.");
+  }
+});
+
+// Ensure "No upcoming appointments." shows when there are no appointments
+function checkAndShowPlaceholder() {
+  const appointmentsList = document.getElementById("appointments-list");
+  if (appointmentsList.children.length === 0) {
+    const placeholder = document.createElement("p");
+    placeholder.textContent = "No upcoming appointments.";
+    appointmentsList.appendChild(placeholder);
+  }
+}
+
+// Call the function initially to ensure the placeholder is shown
+checkAndShowPlaceholder();
+
+  </script>
+  <script src="patient-script.js"></script>
+</body>
+</html>

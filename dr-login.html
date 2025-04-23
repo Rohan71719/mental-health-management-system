@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Signup</title>
+    <link rel="stylesheet" href="dr-login.css">
+    <style>
+        /* Ensure the "Sign Up" link is clickable */
+        #toggle-signup {
+            cursor: pointer; /* Make sure the cursor changes to a pointer */
+            color: blue; /* Ensure it's styled for visibility */
+            text-decoration: underline; /* Underline the link to make it look clickable */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="left">E-SwasthMann</div>
+            <div class="right">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="">About Us</a></li>
+                    <li><a href="">FAQs</a></li>
+                    <li><a href="">Contact Us</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="form-container">
+            <h2 id="form-title">Login</h2>
+
+            <!-- Login Form -->
+            <form id="login-form" class="active-form">
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit" class="btn">Login</button>
+                <p class="toggle-text">Don't have an account? <a href="#" id="toggle-signup">Sign Up</a></p>
+            </form>
+
+            <!-- Signup Form -->
+            <form id="signup-form" class="hidden-form">
+                <div class="input-group">
+                    <label for="signup-email">Email</label>
+                    <input type="email" id="signup-email" required>
+                </div>
+                <div class="input-group">
+                    <label for="signup-password">Password</label>
+                    <input type="password" id="signup-password" required>
+                </div>
+                <div class="input-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" id="confirm-password" required>
+                </div>
+                <button type="submit" class="btn">Sign Up</button>
+                <p class="toggle-text">Already have an account? <a href="#" id="toggle-login">Login</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Predefined email and password for login
+        const predefinedEmail = "doctor1@gmail.com";
+        const predefinedPassword = "doctor1123";
+
+        // Toggle forms
+        const loginForm = document.getElementById("login-form");
+        const signupForm = document.getElementById("signup-form");
+        const toggleSignup = document.getElementById("toggle-signup");
+        const toggleLogin = document.getElementById("toggle-login");
+
+        toggleSignup.addEventListener("click", (e) => {
+            e.preventDefault();
+            loginForm.classList.remove("active-form");
+            loginForm.classList.add("hidden-form");
+            signupForm.classList.remove("hidden-form");
+            signupForm.classList.add("active-form");
+        });
+
+        toggleLogin.addEventListener("click", (e) => {
+            e.preventDefault();
+            signupForm.classList.remove("active-form");
+            signupForm.classList.add("hidden-form");
+            loginForm.classList.remove("hidden-form");
+            loginForm.classList.add("active-form");
+        });
+
+        // Signup form validation and store data in localStorage
+        signupForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            const signupEmail = document.getElementById("signup-email").value;
+            const signupPassword = document.getElementById("signup-password").value;
+            const confirmPassword = document.getElementById("confirm-password").value;
+
+            // Check if passwords match
+            if (signupPassword !== confirmPassword) {
+                alert("Passwords do not match!");
+                return;
+            }
+
+            // Store new user details in localStorage
+            const newUser = {
+                email: signupEmail,
+                password: signupPassword
+            };
+
+            localStorage.setItem("userDetails", JSON.stringify(newUser));
+
+            alert("Sign Up successful! You can now log in.");
+
+            // After sign-up, switch to the login form
+            signupForm.classList.remove("active-form");
+            signupForm.classList.add("hidden-form");
+            loginForm.classList.remove("hidden-form");
+            loginForm.classList.add("active-form");
+        });
+
+        // Login form validation using predefined details and stored details
+        loginForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            // Check predefined login details first
+            if (email === predefinedEmail && password === predefinedPassword) {
+                alert("Login successful!");
+                window.location.href = "dr.html"; // Redirect to the doctor page
+                return;
+            }
+
+            // Check if the user exists in localStorage
+            const storedUser = JSON.parse(localStorage.getItem("userDetails"));
+            if (storedUser && storedUser.email === email && storedUser.password === password) {
+                alert("Login successful!");
+                window.location.href = "new-dr.html"; // Redirect to the doctor page
+            } else {
+                alert("Invalid email or password!");
+            }
+        });
+    </script>
+</body>
+</html>

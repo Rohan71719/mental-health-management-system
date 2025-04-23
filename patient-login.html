@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Signup</title>
+    <link rel="stylesheet" href="patient-login.css">
+    <style>
+        /* Ensure the "Sign Up" link is clickable */
+        #toggle-signup {
+            cursor: pointer; /* Make sure the cursor changes to a pointer */
+            color: blue; /* Ensure it's styled for visibility */
+            text-decoration: underline; /* Underline the link to make it look clickable */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="left">E-SwasthMann</div>
+            <div class="right">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="">About Us</a></li>
+                    <li><a href="">FAQs</a></li>
+                    <li><a href="">Contact Us</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="form-container">
+            <h2 id="form-title">Login</h2>
+
+            <!-- Login Form -->
+            <form id="login-form">
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit" class="btn">Login</button>
+                <p class="toggle-text">Don't have an account? <a href="#" id="toggle-signup">Sign Up</a></p>
+            </form>
+
+            <!-- Signup Form (Hidden by default) -->
+            <form id="signup-form" style="display: none;">
+                <div class="input-group">
+                    <label for="signup-email">Email</label>
+                    <input type="email" id="signup-email" required>
+                </div>
+                <div class="input-group">
+                    <label for="signup-password">Password</label>
+                    <input type="password" id="signup-password" required>
+                </div>
+                <div class="input-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" id="confirm-password" required>
+                </div>
+                <button type="submit" class="btn">Sign Up</button>
+                <p class="toggle-text">Already have an account? <a href="#" id="toggle-login">Login</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Ensure the DOM is fully loaded before attaching event listeners
+        document.addEventListener("DOMContentLoaded", function () {
+            const loginForm = document.getElementById("login-form");
+            const signupForm = document.getElementById("signup-form");
+            const toggleSignup = document.getElementById("toggle-signup");
+            const toggleLogin = document.getElementById("toggle-login");
+
+            // Show the signup form when the user clicks on the 'Sign Up' link
+            toggleSignup.addEventListener("click", (e) => {
+                e.preventDefault();  // Prevent default link behavior
+                loginForm.style.display = "none";
+                signupForm.style.display = "block";
+            });
+
+            // Show the login form when the user clicks on the 'Login' link
+            toggleLogin.addEventListener("click", (e) => {
+                e.preventDefault();  // Prevent default link behavior
+                signupForm.style.display = "none";
+                loginForm.style.display = "block";
+            });
+
+            // Signup form validation and store user data permanently in localStorage
+            signupForm.addEventListener("submit", (e) => {
+                e.preventDefault();
+
+                const signupEmail = document.getElementById("signup-email").value;
+                const signupPassword = document.getElementById("signup-password").value;
+                const confirmPassword = document.getElementById("confirm-password").value;
+
+                // Check if passwords match
+                if (signupPassword !== confirmPassword) {
+                    alert("Passwords do not match!");
+                    return;
+                }
+
+                // Retrieve existing users from localStorage or initialize an empty array if none exist
+                let users = JSON.parse(localStorage.getItem("users")) || [];
+
+                // Check if the email already exists
+                const userExists = users.some(user => user.email === signupEmail);
+                if (userExists) {
+                    alert("Email is already in use. Please use a different email.");
+                    return;
+                }
+
+                // Store new user details in localStorage
+                const newUser = {
+                    email: signupEmail,
+                    password: signupPassword
+                };
+
+                // Add new user to the list of users and store it back in localStorage
+                users.push(newUser);
+                localStorage.setItem("users", JSON.stringify(users));
+
+                alert("Sign Up successful! You can now log in.");
+
+                // After sign-up, switch to the login form
+                signupForm.style.display = "none";
+                loginForm.style.display = "block";
+            });
+
+            // Login form validation using stored user details or predefined users
+            loginForm.addEventListener("submit", (e) => {
+                e.preventDefault();
+
+                const email = document.getElementById("email").value;
+                const password = document.getElementById("password").value;
+
+                // Predefined users
+                const predefinedUsers = [
+                    { email: "patient1@gmail.com", password: "patient1123", redirectTo: "patient.html" },
+                    { email: "patient2@gmail.com", password: "patient2123", redirectTo: "patient1.html" }
+                ];
+
+                // Check if the user exists in predefined users
+                const validUser = predefinedUsers.find(user => user.email === email && user.password === password);
+
+                if (validUser) {
+                    alert("Login successful!");
+                    window.location.href = validUser.redirectTo; // Redirect based on the predefined email
+                } else {
+                    // Retrieve users from localStorage
+                    const users = JSON.parse(localStorage.getItem("users")) || [];
+
+                    // Check if the user exists and the password matches
+                    const storedUser = users.find(user => user.email === email && user.password === password);
+
+                    if (storedUser) {
+                        alert("Login successful!");
+                        window.location.href = "patient0.html"; // Redirect to a patient page after login
+                    } else {
+                        alert("Invalid email or password!");
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

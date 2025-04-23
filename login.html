@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Selection</title>
+    <link rel="stylesheet" href="login-style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="left">
+                E-SwasthMann
+            </div>
+            <div class="right">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="">About Us</a></li>
+                    <li><a href="">FAQs</a></li>
+                    <li><a href="">Contact Us</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <h1>Select Your Login</h1>
+        <p>Please choose your role to log in:</p>
+        <div class="login-options">
+            <div class="login-card doctor" onclick="window.location.href='dr-login.html'">
+                <h2>Doctor</h2>
+                <p>Login as Doctor</p>
+            </div>
+            <div class="login-card patient" onclick="window.location.href='patient-login.html'">
+                <h2>Patient</h2>
+                <p>Login as Patient</p>
+            </div>
+            <div class="login-card admin" onclick="window.location.href='admin-login.html'">
+                <h2>Admin</h2>
+                <p>Login as Admin</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

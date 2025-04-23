@@ -1,0 +1,708 @@
+/* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Header Styles */
+header {
+  background-color: #4caf50; /* Light green for a fresh, calming look */
+  color: white;
+  padding: 15px 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 10;
+  transition: background-color 0.3s ease-in-out;
+}
+
+header .header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+header .header-content h1 {
+  margin: 0;
+  font-size: 2.2em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  animation: slideInLeft 1s ease-out;
+}
+
+header nav {
+  display: flex;
+  gap: 15px;
+}
+
+header nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1em;
+  font-weight: 500;
+  text-transform: uppercase;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+header nav a:hover {
+  background-color: #81c784; /* Slightly darker green on hover */
+  transform: translateY(-2px);
+}
+
+header nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #81c784;
+  transition: width 0.3s ease;
+}
+
+header nav a:hover::after {
+  width: 100%;
+}
+
+/* Animations */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  header .header-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  header nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  header nav a {
+    font-size: 1.1em;
+    padding: 8px 12px;
+  }
+}
+
+/* Patient List Section */
+.content-section {
+  background-color: #ffffff;
+  border-radius: 8px;
+  margin: 30px auto;
+  padding: 20px;
+  max-width: 1200px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-out;
+}
+
+.content-section h2 {
+  text-align: center;
+  color: #4caf50; /* Green color for a calm, healthy feel */
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.search-form {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.search-form input {
+  padding: 10px;
+  font-size: 1.1em;
+  width: 300px;
+  border: 2px solid #4caf50;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.search-form input:focus {
+  border-color: #81c784; /* Lighter green when focused */
+}
+
+.search-form button {
+  padding: 10px 15px;
+  margin-left: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.search-form button:hover {
+  background-color: #81c784;
+  transform: translateY(-2px);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+thead th {
+  background-color: #4caf50;
+  color: white;
+  padding: 12px;
+  text-align: left;
+  font-size: 1.1em;
+}
+
+tbody tr {
+  background-color: #f9f9f9;
+  transition: background-color 0.3s;
+}
+
+tbody tr:hover {
+  background-color: #e8f5e9; /* Light green background on hover */
+}
+
+td {
+  padding: 12px;
+  text-align: left;
+  font-size: 1.1em;
+}
+
+button {
+  padding: 8px 12px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+  background-color: #81c784;
+  transform: translateY(-2px);
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .content-section {
+    padding: 15px;
+  }
+
+  .search-form input {
+    width: 100%;
+    font-size: 1em;
+  }
+
+  .search-form button {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  table {
+    font-size: 0.9em;
+  }
+
+  td {
+    padding: 10px;
+  }
+
+  button {
+    font-size: 1em;
+    padding: 8px 12px;
+  }
+}
+
+/* Popup Section */
+.popup {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Popup Content */
+.popup-content {
+  text-align: center;
+  position: relative;
+}
+
+.popup-content h3 {
+  font-size: 1.8em;
+  color: #54e600; /* Blue color for the heading */
+  margin-bottom: 15px;
+}
+
+.popup-content p {
+  font-size: 1.2em;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* Close Button */
+.popup .close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5em;
+  color: #4caf50;
+  cursor: pointer;
+  background: none;
+  border: none;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.popup .close:hover {
+  color: #ff5722; /* Orange color when hovered */
+  transform: scale(1.2); /* Enlarges the close button on hover */
+}
+
+/* Show the popup */
+.popup.show {
+  display: block;
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Fade-in Animation */
+@keyframes popupFadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.popup.show {
+  animation: popupFadeIn 0.5s ease-out;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .popup {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .popup-content h3 {
+    font-size: 1.5em;
+  }
+
+  .popup-content p {
+    font-size: 1.1em;
+  }
+}
+
+/* Doctor's Schedule Section */
+#doctor-schedule {
+  background-color: #f1f8ff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-top: 30px;
+}
+
+#doctor-schedule h2 {
+  font-size: 2.2em;
+  color: #0de91f;
+  margin-bottom: 15px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+#doctor-schedule p {
+  font-size: 1.1em;
+  color: #555;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+#doctor-appointments {
+  list-style-type: none;
+  padding: 0;
+  font-size: 1.1em;
+  font-weight: 500;
+  color: #333;
+}
+
+#doctor-appointments li {
+  background-color: #fff;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#doctor-appointments li:hover {
+  background-color: #d1ecf1;
+  transform: translateY(-5px);
+}
+
+/* Profile Section */
+#profile {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-top: 30px;
+}
+
+#profile h2 {
+  font-size: 2.2em;
+  color: #4caf50;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.profile-info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+}
+
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid #4caf50;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.profile-pic:hover {
+  transform: scale(1.05);
+}
+
+.profile-details {
+  font-size: 1.1em;
+  color: #333;
+}
+
+.profile-details p {
+  margin: 5px 0;
+}
+
+.profile-details strong {
+  color: #4caf50;
+  font-weight: 600;
+}
+
+/* Animations for Sections */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#doctor-schedule, #profile {
+  animation: slideUp 0.5s ease-out;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #doctor-schedule, #profile {
+    padding: 20px;
+    margin-top: 20px;
+  }
+
+  #doctor-schedule h2, #profile h2 {
+    font-size: 1.8em;
+  }
+
+  .profile-info {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile-pic {
+    width: 120px;
+    height: 120px;
+  }
+
+  .profile-details {
+    font-size: 1em;
+  }
+
+  #doctor-appointments li {
+    font-size: 1em;
+    padding: 12px;
+  }
+}
+
+/* Settings Section */
+#settings {
+  background-color: #f9f9f9;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-top: 30px;
+}
+
+#settings h2 {
+  font-size: 2.2em;
+  color: #4caf50;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+}
+
+#settings form {
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+#settings form h3 {
+  font-size: 1.8em;
+  color: #333;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+#settings form label {
+  font-size: 1.1em;
+  color: #555;
+  display: block;
+  margin: 10px 0 5px;
+}
+
+#settings form input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 1em;
+  color: #333;
+  transition: border-color 0.3s ease;
+}
+
+#settings form input:focus {
+  border-color: #4caf50;
+  outline: none;
+}
+
+#settings form button {
+  background-color: #4caf50;
+  color: white;
+  font-size: 1.1em;
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#settings form button:hover {
+  background-color: #4caf50;
+  transform: translateY(-3px);
+}
+
+/* Help and Support Section */
+#help-support {
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-top: 30px;
+}
+
+#help-support h3 {
+  font-size: 1.8em;
+  color: #333;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+#help-support p {
+  font-size: 1.1em;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+#help-support a {
+  color: #4caf50;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+#help-support a:hover {
+  color: #4caf50;
+}
+
+#help-support button {
+  background-color: #4caf50;
+  color: white;
+  font-size: 1.1em;
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#help-support button:hover {
+  background-color: #4caf50;
+  transform: translateY(-3px);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#settings, #help-support {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #settings {
+    padding: 20px;
+  }
+
+  #settings h2 {
+    font-size: 1.8em;
+  }
+
+  #settings form {
+    padding: 20px;
+  }
+
+  #settings form h3 {
+    font-size: 1.6em;
+  }
+
+  #settings form input, #settings form button {
+    font-size: 1em;
+  }
+
+  #help-support {
+    padding: 20px;
+  }
+
+  #help-support h3 {
+    font-size: 1.6em;
+  }
+
+  #help-support p {
+    font-size: 1em;
+  }
+}
+
+/* Footer Styles */
+footer {
+  background-color: #333;
+  color: #f9f9f9;
+  text-align: center;
+  padding: 20px 0;
+  position: relative;
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-out;
+}
+
+footer p {
+  font-size: 1.2em;
+  margin: 0;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: #ddd;
+}
+
+/* Hover effect for the copyright text */
+footer p:hover {
+  color: #ffd700;
+  transform: translateY(-2px);
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  footer {
+    padding: 15px 0;
+  }
+
+  footer p {
+    font-size: 1em;
+  }
+}

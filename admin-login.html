@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Signup</title>
+    <link rel="stylesheet" href="admin-login.css">
+    <style>
+        /* Add styles for clickable "Sign Up" text */
+        #toggle-signup {
+            color: blue;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        /* Optional: Add hover effect */
+        #toggle-signup:hover {
+            color: darkblue;
+        }
+
+        /* Button styles for Sign Up and Login text links */
+        .toggle-text a {
+            color: blue;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .toggle-text a:hover {
+            color: darkblue;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="left">E-SwasthMann</div>
+            <div class="right">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="">About Us</a></li>
+                    <li><a href="">FAQs</a></li>
+                    <li><a href="">Contact Us</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="form-container">
+            <h2 id="form-title">Login</h2>
+
+            <!-- Login Form -->
+            <form id="login-form">
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit" class="btn">Login</button>
+                <p class="toggle-text">Don't have an account? <a href="#" id="toggle-signup">Sign Up</a></p>
+            </form>
+
+            <!-- Signup Form (Hidden by default) -->
+            <form id="signup-form" style="display: none;">
+                <div class="input-group">
+                    <label for="signup-email">Email</label>
+                    <input type="email" id="signup-email" required>
+                </div>
+                <div class="input-group">
+                    <label for="signup-password">Password</label>
+                    <input type="password" id="signup-password" required>
+                </div>
+                <div class="input-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" id="confirm-password" required>
+                </div>
+                <button type="submit" class="btn">Sign Up</button>
+                <p class="toggle-text">Already have an account? <a href="#" id="toggle-login">Login</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Predefined email and password for admin login
+        const predefinedEmail = "admin1@gmail.com";
+        const predefinedPassword = "admin1123";
+        
+        // Toggle between login and signup forms
+        const loginForm = document.getElementById("login-form");
+        const signupForm = document.getElementById("signup-form");
+        const toggleSignup = document.getElementById("toggle-signup");
+        const toggleLogin = document.getElementById("toggle-login");
+
+        toggleSignup.addEventListener("click", (e) => {
+            e.preventDefault();
+            loginForm.style.display = "none";
+            signupForm.style.display = "block";
+        });
+
+        toggleLogin.addEventListener("click", (e) => {
+            e.preventDefault();
+            signupForm.style.display = "none";
+            loginForm.style.display = "block";
+        });
+
+        // Signup form submission and storing new user in localStorage
+        signupForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            
+            const signupEmail = document.getElementById("signup-email").value;
+            const signupPassword = document.getElementById("signup-password").value;
+            const confirmPassword = document.getElementById("confirm-password").value;
+
+            // Check if passwords match
+            if (signupPassword !== confirmPassword) {
+                alert("Passwords do not match!");
+                return;
+            }
+
+            // Retrieve users from localStorage or initialize as an empty array if no users are found
+            let users = JSON.parse(localStorage.getItem("users")) || [];
+
+            // Check if the email already exists in localStorage
+            const userExists = users.some(user => user.email === signupEmail);
+            if (userExists) {
+                alert("Email is already in use. Please use a different email.");
+                return;
+            }
+
+            // Store the new user in localStorage
+            const newUser = { email: signupEmail, password: signupPassword };
+            users.push(newUser);
+            localStorage.setItem("users", JSON.stringify(users));
+
+            alert("Sign Up successful! You can now log in.");
+
+            // After successful sign-up, show the login form
+            signupForm.style.display = "none";
+            loginForm.style.display = "block";
+        });
+
+        // Login form submission with validation against stored or predefined users
+        loginForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            // Check against predefined admin credentials
+            if (email === predefinedEmail && password === predefinedPassword) {
+                alert("Admin Login successful!");
+                window.location.href = "admin.html";  // Redirect to admin dashboard
+            } else {
+                // Retrieve users from localStorage
+                const users = JSON.parse(localStorage.getItem("users")) || [];
+
+                // Find the user in localStorage
+                const validUser = users.find(user => user.email === email && user.password === password);
+
+                if (validUser) {
+                    alert("Login successful!");
+                    window.location.href = "admin.html";  // Redirect to user dashboard or other page
+                } else {
+                    alert("Invalid email or password!");
+                }
+            }
+        });
+    </script>
+</body>
+</html>

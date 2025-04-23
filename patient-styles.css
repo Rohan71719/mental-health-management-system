@@ -1,0 +1,1075 @@
+/* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #e8f5e9; /* Light green background */
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #004d40; /* Deep green header */
+  color: #fff;
+  padding: 20px 0;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+header .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+header .subtitle {
+  font-size: 1.2rem;
+  margin: 5px 0;
+}
+
+nav {
+  margin-top: 15px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #b9fbc0; /* Light green hover */
+}
+
+main {
+  padding: 20px 0;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+/* Section Styles */
+section {
+  background: #fff; /* White background */
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+section h2 {
+  color: #004d40; /* Deep green headings */
+  margin-bottom: 15px;
+  font-size: 1.8rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Dashboard Cards */
+.dashboard-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 10px 0;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dashboard-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* Patient Profile Section */
+#dashboard {
+  background-color: #f7f7f7;
+  padding: 40px;
+  border-radius: 15px;
+  margin: 20px 0;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 1s ease-out;
+}
+
+#dashboard h3 {
+  font-size: 28px;
+  color: #2c3e50;
+  font-weight: 600;
+  margin-bottom: 25px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.dashboard-card {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.profile-detail p {
+  font-size: 18px;
+  color: #7f8c8d;
+  margin: 10px 0;
+}
+
+.profile-detail strong {
+  font-weight: 600;
+  color: #34495e;
+}
+
+.profile-detail span {
+  color: #16a085;
+  font-weight: 500;
+}
+
+.edit-button {
+  margin-top: 20px;
+  padding: 12px 25px;
+  background-color: #f39c12;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.edit-button:hover {
+  background-color: #e67e22;
+  transform: scale(1.05);
+}
+
+.edit-button:focus {
+  outline: none;
+}
+
+/* Responsive Styling for Profile */
+@media (max-width: 768px) {
+  #dashboard {
+    padding: 20px;
+  }
+
+  .dashboard-card {
+    padding: 20px;
+  }
+
+  #dashboard h3 {
+    font-size: 24px;
+  }
+
+  .profile-detail p {
+    font-size: 16px;
+  }
+
+  .edit-button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
+/* Animation for Fade-in Effect */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Appointments Section */
+.appointment-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.appointment-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* Lists */
+ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+li {
+  margin: 10px 0;
+  color: #555;
+}
+
+.wellness-tips ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+.wellness-tips li {
+  margin: 10px 0;
+  color: #555;
+}
+
+/* Doctors Availability Section */
+#availability {
+  background-color: #ecf0f1;
+  padding: 40px;
+  margin: 20px 0;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 1s ease-out;
+}
+
+#availability h2 {
+  font-size: 30px;
+  color: #2c3e50;
+  font-weight: 600;
+  margin-bottom: 25px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.availability-card {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.availability-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+}
+
+.availability-card h3 {
+  font-size: 24px;
+  color: #34495e;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.availability-card p {
+  font-size: 16px;
+  color: #7f8c8d;
+  line-height: 1.5;
+  margin: 8px 0;
+}
+
+.availability-card p strong {
+  color: #f39c12;
+  font-weight: 600;
+}
+
+.availability-card p span {
+  display: inline-block;
+  padding: 5px 10px;
+  margin-left: 10px;
+  font-size: 14px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+/* Different colors for each day */
+.availability-card p .monday {
+  background-color: #3498db;
+  color: white;
+}
+
+.availability-card p .wednesday {
+  background-color: #2ecc71;
+  color: white;
+}
+
+.availability-card p .friday {
+  background-color: #e67e22;
+  color: white;
+}
+
+.availability-card p .tuesday {
+  background-color: #9b59b6;
+  color: white;
+}
+
+.availability-card p .thursday {
+  background-color: #f1c40f;
+  color: white;
+}
+
+.availability-card p .saturday {
+  background-color: #1abc9c;
+  color: white;
+}
+
+/* Responsive styling for cards */
+@media (max-width: 768px) {
+  #availability {
+    padding: 20px;
+  }
+
+  .availability-card {
+    padding: 15px;
+  }
+
+  .availability-card h3 {
+    font-size: 20px;
+  }
+
+  .availability-card p {
+    font-size: 14px;
+  }
+}
+
+/* Animation for fading in */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Upcoming Appointments Section Styling */
+#upcoming-appointments {
+  background: linear-gradient(135deg, #74ebd5, #acb6e5);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+  animation: fadeIn 1s ease-in-out;
+}
+
+#upcoming-appointments h2 {
+  font-family: 'Arial', sans-serif;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 15px;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+#appointments-list {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  font-family: 'Verdana', sans-serif;
+  overflow: hidden;
+}
+
+#appointments-list p {
+  font-size: 16px;
+  color: #666666;
+  margin: 0;
+  text-align: center;
+  font-style: italic;
+  transition: all 0.3s ease-in-out;
+}
+
+#appointments-list p:hover {
+  color: #333333;
+  font-weight: bold;
+  transform: scale(1.05);
+}
+
+#appointments-list li {
+  list-style: none;
+  font-size: 18px;
+  color: #333333;
+  font-weight: bold;
+  margin: 8px 0;
+  animation: slideIn 0.5s ease-in-out;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Additional Styling for Better Visibility */
+#upcoming-appointments ul {
+  padding: 0;
+  margin: 0;
+}
+
+/* Resources Section */
+#resources {
+  padding: 60px 20px;
+  background-color: #f9f9f9;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 1s ease-out;
+}
+
+#resources h2 {
+  text-align: center;
+  font-size: 32px;
+  color: #2c3e50;
+  margin-bottom: 40px;
+  font-weight: bold;
+}
+
+.resource-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.resource-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.resource-list li {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.resource-list li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.resource-list a {
+  text-decoration: none;
+  color: #3498db;
+  font-size: 18px;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
+}
+
+.resource-list a:hover {
+  color: #f39c12; /* Yellow color on hover */
+}
+
+.resource-list p {
+  font-size: 16px;
+  color: #7f8c8d;
+  line-height: 1.5;
+}
+
+/* Animation for fade-in effect */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #resources {
+    padding: 40px 15px;
+  }
+
+  #resources h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+
+  .resource-list ul {
+    padding-left: 20px;
+  }
+
+  .resource-list li {
+    padding: 15px;
+    font-size: 14px;
+  }
+
+  .resource-list a {
+    font-size: 16px;
+  }
+
+  .resource-list p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  #resources {
+    padding: 30px 10px;
+  }
+
+  #resources h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .resource-list li {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .resource-list a {
+    font-size: 14px;
+  }
+
+  .resource-list p {
+    font-size: 12px;
+  }
+}
+
+/* Footer */
+footer {
+  background-color: #004d40;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.2);
+}
+
+footer p {
+  margin: 0;
+}
+
+/* Responsive Layout */
+.content-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  max-width: 1200px;
+  margin: 20px auto;
+  flex-wrap: wrap;
+}
+
+.main-content {
+  flex: 3;
+  margin-right: 20px;
+}
+
+.sidebar {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sidebar section {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Modal Styling */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding-top: 60px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.modal.show {
+  opacity: 1;
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 5% auto;
+  padding: 40px;
+  border: 1px solid #ddd;
+  width: 80%;
+  max-width: 700px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(-50px);
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.modal.show .modal-content {
+  transform: translateY(0);
+}
+
+/* Close Button */
+.close-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #555;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+
+.close-button:hover {
+  color: #f39c12;
+}
+
+/* Form Styling */
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.form-group input:focus {
+  border-color: #f39c12;
+  outline: none;
+}
+
+/* Button Styling */
+button {
+  background-color: #f39c12;
+  color: white;
+  padding: 15px 25px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  width: 100%;
+  margin-top: 20px;
+}
+
+button:hover {
+  background-color: #e67e22;
+}
+
+/* Animation for Modal */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+/* Modal Background - Light Darkening */
+.modal .modal-content {
+  animation: fadeIn 0.4s ease-out;
+}
+
+/* Adjust the form layout for larger, more spacious design */
+@media screen and (min-width: 768px) {
+  .form-group {
+    margin-bottom: 30px;
+  }
+
+  .form-group input {
+    padding: 18px;
+    font-size: 18px;
+  }
+
+  button {
+    font-size: 20px;
+    padding: 18px 28px;
+  }
+}
+
+/* Wellness Tips Section */
+#wellness-tips {
+  background-color: #f5f8fc;
+  padding: 30px;
+  margin: 20px 0;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 1s ease-out;
+}
+
+#wellness-tips h2 {
+  font-size: 26px;
+  color: #2c3e50;
+  font-weight: 600;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.wellness-tips {
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.wellness-tips p {
+  font-size: 16px;
+  color: #7f8c8d;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.wellness-tips ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.wellness-tips li {
+  font-size: 16px;
+  color: #34495e;
+  margin-bottom: 12px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.wellness-tips li::before {
+  content: "•";
+  color: #f39c12;
+  position: absolute;
+  left: 0;
+  font-size: 18px;
+  top: 4px;
+}
+
+button {
+  background-color: #f39c12;
+  color: white;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-top: 15px;
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+button:hover {
+  background-color: #e67e22;
+  transform: translateY(-2px);
+}
+
+button:focus {
+  outline: none;
+}
+
+/* Additional Tips (Hidden initially) */
+#additional-tips {
+  display: none;
+  background-color: #ecf0f1;
+  margin-top: 15px;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#additional-tips ul {
+  padding-left: 20px;
+}
+
+#additional-tips li {
+  font-size: 14px;
+  color: #7f8c8d;
+  margin-bottom: 10px;
+  list-style-type: none;
+}
+
+#additional-tips li::before {
+  content: "•";
+  color: #f39c12;
+  font-size: 16px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.self-assessment {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.self-assessment a {
+  text-decoration: none;
+}
+
+.self-assessment button {
+  background-color: #e67e22;
+  color: white;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 15px;
+  width: 100%;
+}
+
+.self-assessment button:hover {
+  background-color: #f39c12;
+}
+
+/* Hover effect for wellness tips section */
+.wellness-tips:hover {
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Button container */
+button:focus {
+  outline: none;
+}
+
+/* Animation for fading in */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Book Appointment Section */
+#appointment {
+  padding: 50px 20px;
+  background-color: #f9f9f9;
+  margin: 40px 0;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 1s ease-out;
+}
+
+#appointment h2 {
+  text-align: center;
+  font-size: 32px;
+  color: #2c3e50;
+  margin-bottom: 40px;
+  font-weight: bold;
+}
+
+.appointment-card {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 0 auto;
+  animation: slideIn 1s ease-out;
+}
+
+.appointment-card h3 {
+  font-size: 28px;
+  color: #f39c12; /* Yellow color for titles */
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-size: 16px;
+  color: #34495e;
+  font-weight: bold;
+}
+
+.form-group select,
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ecf0f1;
+  border-radius: 8px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background-color: #f8f9fa;
+}
+
+.form-group select:focus,
+.form-group input:focus {
+  border-color: #f39c12; /* Yellow border on focus */
+  box-shadow: 0 0 5px rgba(243, 156, 18, 0.4); /* Yellow shadow on focus */
+  outline: none;
+}
+
+button[type="submit"] {
+  background-color: #f39c12; /* Yellow background */
+  color: white;
+  padding: 14px 30px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease;
+  font-weight: 600;
+}
+
+button[type="submit"]:hover {
+  background-color: #e67e22; /* Darker yellow on hover */
+}
+
+/* Animation for fade-in and slide-in */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #appointment {
+    padding: 30px 10px;
+  }
+
+  .appointment-card {
+    padding: 25px;
+    width: 100%;
+    max-width: none;
+  }
+
+  #appointment h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  .appointment-card h3 {
+    font-size: 24px;
+  }
+
+  .form-group label {
+    font-size: 14px;
+  }
+
+  .form-group select,
+  .form-group input {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  button[type="submit"] {
+    font-size: 16px;
+  }
+}
+
+/* Extra Compact Design for Small Screens */
+@media (max-width: 480px) {
+  #appointment {
+    padding: 20px 5px;
+  }
+
+  .appointment-card {
+    padding: 20px;
+    width: 100%;
+  }
+
+  #appointment h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+
+  .appointment-card h3 {
+    font-size: 20px;
+  }
+
+  .form-group select,
+  .form-group input {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  button[type="submit"] {
+    font-size: 14px;
+  }
+}

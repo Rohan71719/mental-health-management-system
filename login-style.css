@@ -1,0 +1,206 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: 'Lato', sans-serif;
+    background: linear-gradient(to bottom right, rgb(235, 245, 255), rgb(210, 230, 255));
+    color: rgb(40, 50, 90); /* Calming text color */
+    min-height: 100vh;
+    padding-top: 70px; /* Prevent overlap with fixed nav */
+    line-height: 1.7;
+    overflow-x: hidden;
+    animation: backgroundFade 10s infinite alternate; /* Dynamic background fade */
+}
+
+/* Nav Bar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    background-color: rgb(102, 178, 255); /* Soothing blue */
+    position: fixed; /* Fixed at the top */
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    padding: 0 20px;
+    animation: slideDown 0.8s ease-out; /* Smooth slide-down animation */
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    list-style: none;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: rgb(253, 217, 181); /* Soft peach hover */
+    transform: scale(1.1);
+}
+
+/* Container */
+.container {
+    text-align: center;
+    margin-top: 80px; /* Ensure adequate space below fixed nav */
+    animation: fadeIn 1.5s ease;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: rgb(102, 178, 255);
+}
+
+p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: rgb(40, 50, 90);
+}
+
+/* Login Options */
+.login-options {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap; /* Ensure cards wrap on smaller screens */
+    animation: fadeInUp 1.5s ease;
+}
+
+.login-card {
+    width: 220px;
+    height: 180px;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    position: relative; /* For decorative elements */
+    overflow: hidden; /* Hide extra decorations */
+}
+
+.login-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: rotate(45deg);
+    transition: all 0.5s ease;
+    z-index: 0; /* Behind the text */
+}
+
+.login-card:hover::before {
+    transform: rotate(90deg);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.login-card:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Login Card Content */
+.login-card h2 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    position: relative; /* Above ::before */
+    z-index: 1;
+}
+
+.login-card p {
+    font-size: 1.1rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* Specific Card Colors */
+.doctor {
+    background: linear-gradient(to bottom right, rgb(51, 229, 116), rgb(43, 179, 100)); /* Soothing green */
+}
+
+.patient {
+    background: linear-gradient(to bottom right, rgb(95, 39, 199), rgb(75, 29, 150)); /* Calm purple */
+}
+
+.admin {
+    background: linear-gradient(to bottom right, rgb(192, 185, 11), rgb(176, 160, 20)); /* Warm gold */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .login-card {
+        width: 90%;
+        height: auto;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(50%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes backgroundFade {
+    from {
+        background: linear-gradient(to bottom right, rgb(235, 245, 255), rgb(210, 230, 255));
+    }
+    to {
+        background: linear-gradient(to bottom right, rgb(245, 240, 255), rgb(220, 250, 240));
+    }
+}

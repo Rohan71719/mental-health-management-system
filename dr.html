@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mental Health Management - Doctor Portal</title>
+  <link rel="stylesheet" href="doctor-styles.css"> 
+  <!-- Add necessary CSS for the popup -->
+<style>
+  .popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    width: 80%;
+    max-width: 600px;
+  }
+
+  .popup.show {
+    display: block;
+    opacity: 1;
+  }
+
+  .popup-content {
+    position: relative;
+  }
+
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5em;
+    color: #0073e6;
+    cursor: pointer;
+  }
+
+  .close:hover {
+    color: #ff5722; /* Change on hover */
+  }
+
+  form input {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+
+  form label {
+    font-weight: bold;
+  }
+</style>
+  
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <h1>Doctor Portal - Mental Health Management</h1>
+      <nav>
+        <a href="#patient-list">Patient List</a>
+        <a href="#profile">Profile</a>
+        <a href="#settings">Settings</a>
+        <a href="#doctor-schedule">Doctor's Schedule</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Patient List Section (Updated) -->
+<section id="patient-list" class="content-section">
+  <h2>Patient Profiles</h2>
+  <!-- Search Form -->
+  <form id="search-form" class="search-form">
+    <input type="text" id="search-query" placeholder="Search patients..." aria-label="Search patients">
+    <button type="button" onclick="searchPatients()">Search</button>
+  </form>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Email</th>
+        <th>Mental Health Rating</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="patient-table-body">
+      <tr id="patient-1">
+        <td>Tanmoy Sarkar</td>
+        <td>19</td>
+        <td>tanmoycse354@gmail.com</td>
+        <td>7</td>
+        <td><button onclick="viewPatient('patient-1')">View Details</button></td>
+      </tr>
+      <tr id="patient-2">
+        <td>Rohan Sen</td>
+        <td>20</td>
+        <td>rohancse653@gmail.com</td>
+        <td>5</td>
+        <td><button onclick="viewPatient('patient-2')">View Details</button></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- Popup Section -->
+<div id="popup" class="popup">
+  <div class="popup-content">
+    <span class="close" onclick="closePopup()">×</span>
+    <h3>Patient Details</h3>
+    <form id="patient-details-form">
+      <label for="patient-name">Name:</label>
+      <input type="text" id="patient-name" readonly>
+      <label for="patient-age">Age:</label>
+      <input type="text" id="patient-age" readonly>
+      <label for="patient-email">Email:</label>
+      <input type="text" id="patient-email" readonly>
+      <label for="patient-mental-health">Mental Health Rating:</label>
+      <input type="text" id="patient-mental-health" readonly>
+    </form>
+  </div>
+</div>
+
+
+    <!-- Doctor's Schedule Section (Existing) -->
+    <section id="doctor-schedule" class="content-section">
+      <h2>Doctor's Schedule</h2>
+      <p>Here you can view all the scheduled appointments with your patients.</p>
+      <ul id="doctor-appointments">
+        <li>Tanmoy Sarkar - 2024-11-12 at 10:00 AM</li>
+        <li>Rohan Sen - 2024-11-14 at 2:00 PM</li>
+      </ul>
+    </section>
+
+
+    <!-- Profile Section (Existing) -->
+    <section id="profile" class="content-section">
+      <h2>Your Profile</h2>
+      <div class="profile-info">
+        <img src="assets/drprofile.jpg" alt="Doctor Profile Picture" class="profile-pic">
+        <div class="profile-details">
+          <p><strong>Name:</strong> Dr. Utsav Pandit</p>
+          <p><strong>Email:</strong> dr.utsav@gmail.com</p>
+          <p><strong>Specialty:</strong> Psychiatry</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Settings Section (Updated with Account and Help/Support) -->
+    <section id="settings" class="content-section">
+      <h2>Account Settings</h2>
+      
+      <!-- Account Info Settings -->
+      <form id="settings-form">
+        <h3>Account Information</h3>
+        <label for="email">Email:</label>
+        <input type="email" id="email" value="dr.utsav@gmail.com" required>
+        
+        <label for="password">New Password:</label>
+        <input type="password" id="password" placeholder="Enter new password" required>
+        
+        <label for="confirm-password">Confirm Password:</label>
+        <input type="password" id="confirm-password" placeholder="Confirm new password" required>
+        
+        <button type="button" onclick="updateSettings()">Update Settings</button>
+      </form>
+
+      <!-- Help and Support Section -->
+      <section id="help-support" class="content-section">
+        <h3>Help and Support</h3>
+        <p>If you have any questions or need assistance, please contact our support team:</p>
+        <p>Email: <a href="mailto:support@mentalhealthsystem.com">support@mentalhealthsystem.com</a></p>
+        <p>Phone: +1-800-555-1234</p>
+        <button type="button" onclick="openHelp()">Visit Help Center</button>
+      </section>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Mental Health Management System. All rights reserved.</p>
+  </footer>
+
+  <script src="doctor-scripts.js"></script>
+  <script>
+    // Dummy functions to simulate functionality
+
+    function viewProgress() {
+      const patientName = document.getElementById('patient-progress-name').value;
+      document.getElementById('progress-details').textContent = `Progress details for ${patientName}.`;
+    }
+
+    function searchPatients() {
+      const query = document.getElementById('search-query').value;
+      alert(`Searching for patients: ${query}`);
+    }
+
+    function updateSettings() {
+      alert("Account settings updated.");
+    }
+
+    function openHelp() {
+      alert("Redirecting to Help Center...");
+    }
+    // Function to view patient progress
+function viewProgress() {
+  const patientName = document.getElementById('patient-progress-name').value;
+
+  // Check if the entered patient name contains only numbers or is empty
+  if (!isNaN(patientName) || patientName.trim() === "") {
+    alert("Patient name cannot be a number. Please enter a valid name.");
+    return; // Prevent the function from continuing if invalid
+  }
+
+  // If the name is valid, show progress details
+  document.getElementById('progress-details').textContent = `Progress details for ${patientName}.`;
+}
+
+  </script>
+  <script>
+    // Search and highlight patients
+    function searchPatients() {
+      const query = document.getElementById('search-query').value.toLowerCase();
+      const tableBody = document.getElementById('patient-table-body');
+      const rows = tableBody.getElementsByTagName('tr');
+      let found = false;
+  
+      // Clear previous highlights
+      for (const row of rows) {
+        row.style.backgroundColor = '';
+      }
+  
+      // Search for the patient
+      for (const row of rows) {
+        const nameCell = row.getElementsByTagName('td')[0];
+        if (nameCell && nameCell.textContent.toLowerCase() === query) {
+          row.style.backgroundColor = '#ffeeba'; // Highlight matching row
+          found = true;
+          break;
+        }
+      }
+  
+      if (!found) {
+        alert('Patient not found in the profile.');
+      }
+    }
+  
+    // Show patient details in popup
+    function viewPatient(rowId) {
+      const row = document.getElementById(rowId);
+      if (row) {
+        const cells = row.getElementsByTagName('td');
+        const details = `
+          <strong>Name:</strong> ${cells[0].textContent}<br>
+          <strong>Age:</strong> ${cells[1].textContent}<br>
+          <strong>Email:</strong> ${cells[2].textContent}<br>
+          <strong>Mental Health Rating:</strong> ${cells[3].textContent}
+        `;
+        document.getElementById('popup-details').innerHTML = details;
+        document.getElementById('popup').style.display = 'block';
+      }
+    }
+  
+    // Close the popup
+    function closePopup() {
+      document.getElementById('popup').style.display = 'none';
+    }
+  </script>
+  <!-- JavaScript to handle popup and patient data -->
+<script>
+  function viewPatient(patientId) {
+    // Get the row that was clicked
+    const patientRow = document.getElementById(patientId);
+    
+    // Extract patient details from the row
+    const name = patientRow.cells[0].textContent;
+    const age = patientRow.cells[1].textContent;
+    const email = patientRow.cells[2].textContent;
+    const mentalHealth = patientRow.cells[3].textContent;
+    
+    // Fill the form inputs with patient details
+    document.getElementById('patient-name').value = name;
+    document.getElementById('patient-age').value = age;
+    document.getElementById('patient-email').value = email;
+    document.getElementById('patient-mental-health').value = mentalHealth;
+
+    // Show the popup
+    document.getElementById('popup').classList.add('show');
+  }
+
+  function closePopup() {
+    // Hide the popup
+    document.getElementById('popup').classList.remove('show');
+  }
+
+  // Example function to search patients (not implemented in this example)
+  function searchPatients() {
+    const query = document.getElementById('search-query').value.toLowerCase();
+    const rows = document.querySelectorAll('#patient-table-body tr');
+
+    rows.forEach(row => {
+      const name = row.cells[0].textContent.toLowerCase();
+      const email = row.cells[2].textContent.toLowerCase();
+      
+      if (name.includes(query) || email.includes(query)) {
+        row.style.display = '';
+      } else {
+        row.style.display = 'none';
+      }
+    });
+  }
+</script>
+<!-- JavaScript to handle search functionality and highlighting -->
+<script>
+  function searchPatients() {
+    // Get the search query and convert it to lowercase for case-insensitive comparison
+    const query = document.getElementById('search-query').value.toLowerCase();
+    const rows = document.querySelectorAll('#patient-table-body tr');
+    let matchFound = false;
+
+    // Loop through all patient rows and check if the name matches the search query
+    rows.forEach(row => {
+      const nameCell = row.cells[0]; // First cell contains the patient's name
+      const name = nameCell.textContent.toLowerCase();
+      
+      // If a match is found
+      if (name.includes(query)) {
+        row.style.backgroundColor = '#fffae6'; // Highlight the row with a light yellow background
+        matchFound = true;
+      } else {
+        row.style.backgroundColor = ''; // Reset the background color for non-matching rows
+      }
+    });
+
+    // If no match was found, show an alert
+    if (!matchFound && query !== '') {
+      alert('No match found.');
+    }
+  }
+</script>
+
+</body>
+</html>

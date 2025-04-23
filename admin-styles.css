@@ -1,0 +1,199 @@
+/* admin-styles.css */
+
+/* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+  color: #333;
+}
+
+header {
+  background-color: #5c5f8f;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+nav {
+  margin-top: 10px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 15px;
+  margin: 5px;
+  background-color: #7982b9;
+  border-radius: 5px;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+nav a:hover {
+  background-color: #9ba8d1;
+  transform: scale(1.1);
+}
+
+/* Main Section Styles */
+main {
+  margin: 20px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Section Headings */
+section h2 {
+  font-size: 1.5rem;
+  color: #5c5f8f;
+  border-bottom: 2px solid #7982b9;
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+table th, table td {
+  text-align: left;
+  padding: 12px;
+  border: 1px solid #ddd;
+}
+
+table th {
+  background-color: #7982b9;
+  color: #fff;
+}
+
+table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+table tbody tr:hover {
+  background-color: #e6e6fa;
+  transition: background 0.3s ease;
+}
+
+/* Buttons */
+button {
+  padding: 8px 12px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+button:active {
+  transform: scale(1);
+}
+
+/* Confirm Button */
+button[onclick^="confirmAppointment"] {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+button[onclick^="confirmAppointment"]:hover {
+  background-color: #45a049;
+}
+
+/* Remove Button */
+button[onclick^="removeAppointment"], button[onclick^="deleteDoctor"], button[onclick^="deletePatient"] {
+  background-color: #f44336;
+  color: #fff;
+}
+
+button[onclick^="removeAppointment"]:hover,
+button[onclick^="deleteDoctor"]:hover,
+button[onclick^="deletePatient"]:hover {
+  background-color: #d32f2f;
+}
+
+/* Forms */
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"], input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+input:focus {
+  outline: none;
+  border-color: #7982b9;
+  box-shadow: 0 0 5px rgba(121, 130, 185, 0.8);
+}
+
+button[onclick="processPayment"] {
+  background-color: #007bff;
+  color: #fff;
+}
+
+button[onclick="processPayment"]:hover {
+  background-color: #0056b3;
+}
+
+/* Feedback Section */
+.feedback-entry {
+  background: #f9f9f9;
+  border-left: 5px solid #7982b9;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.feedback-entry p {
+  margin: 0;
+  font-style: italic;
+  color: #555;
+}
+
+.feedback-entry strong {
+  color: #333;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 10px 0;
+  background-color: #5c5f8f;
+  color: #fff;
+  margin-top: 20px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+section {
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+

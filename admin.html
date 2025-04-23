@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mental Health Management - Admin Portal</title>
+  <link rel="stylesheet" href="admin-styles.css">
+ 
+</head>
+<body>
+  <header>
+    <h1>Admin Portal - Mental Health Management</h1>
+    <nav>
+      <a href="#appointments">Booked Appointments</a>
+      <a href="#payments">Manage Payments</a>
+      <a href="#doctors">Doctor Database</a>
+      <a href="#patients">Manage Patients</a>
+      <a href="#payment-history">Payment History</a>
+      <a href="#profile">Profile</a>
+      <a href="#feedback">Patient Feedback</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Booked Appointments Section -->
+<section id="appointments">
+  <h2>Booked Appointments</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Patient Name</th>
+        <th>Doctor</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="appointment-list">
+      <tr id="row-Tanmoy">
+        <td>Tanmoy Sarkar</td>
+        <td>Dr. Utsav Pandit</td>
+        <td>2024-12-09</td>
+        <td>9:00 AM</td>
+        <td id="status-Tanmoy">Pending</td>
+        <td>
+          <button onclick="confirmAppointment('Tanmoy', 'Tanmoy Sarkar')">✔</button>
+          <button onclick="removeAppointment('Tanmoy', 'Tanmoy Sarkar')">✘</button>
+        </td>
+      </tr>
+      <tr id="row-Rohan">
+        <td>Rohan Sen</td>
+        <td>Dr. Anushka Tendulkar</td>
+        <td>2024-12-09</td>
+        <td>9:00 AM</td>
+        <td id="status-Rohan">Pending</td>
+        <td>
+          <button onclick="confirmAppointment('Rohan', 'Rohan Sen')">✔</button>
+          <button onclick="removeAppointment('Rohan', 'Rohan Sen')">✘</button>
+        </td>
+      </tr>
+      <tr id="row-Spashak">
+        <td>Spashak Ghosh</td>
+        <td>Dr. Utsav Pandit</td>
+        <td>2024-12-09</td>
+        <td>4:00 PM</td>
+        <td id="status-Spashak">Pending</td>
+        <td>
+          <button onclick="confirmAppointment('Spashak', 'Spashak Ghosh')">✔</button>
+          <button onclick="removeAppointment('Spashak', 'Spashak Ghosh')">✘</button>
+        </td>
+      </tr>
+      <tr id="row-Anjali">
+        <td>Anjali Kumari</td>
+        <td>Dr. Utsav Pandit</td>
+        <td>2024-12-09</td>
+        <td>4:00 PM</td>
+        <td id="status-Anjali">Pending</td>
+        <td>
+          <button onclick="confirmAppointment('Anjali', 'Anjali Kumari')">✔</button>
+          <button onclick="removeAppointment('Anjali', 'Anjali Kumari')">✘</button>
+        </td>
+      </tr>
+      <tr id="row-Arpita">
+        <td>Arpita Roy</td>
+        <td>Dr. Anushka Tendulkar</td>
+        <td>2024-12-09</td>
+        <td>4:00 PM</td>
+        <td id="status-Arpita">Pending</td>
+        <td>
+          <button onclick="confirmAppointment('Arpita', 'Arpita Roy')">✔</button>
+          <button onclick="removeAppointment('Arpita', 'Arpita Roy')">✘</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+    <!-- Manage Payments Section -->
+    <section id="payments">
+      <h2>Manage Payments</h2>
+      <label for="patient-name">Patient Name:</label>
+      <input type="text" id="patient-name" placeholder="Enter patient name">
+      
+      <label for="payment-amount">Amount:</label>
+      <input type="number" id="payment-amount" placeholder="Enter payment amount">
+      
+      <button onclick="processPayment()">Process Payment</button>
+    </section>
+
+    <!-- Doctor Database Section -->
+<section id="doctors">
+  <h2>Doctor Database</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Doctor Name</th>
+        <th>Specialization</th>
+        <th>Email</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="doctor-list">
+      <tr id="row-Dr-Utsav-Pandit">
+        <td>Dr. Utsav Pandit</td>
+        <td>Psychiatrist</td>
+        <td>doctor1@example.com</td>
+        <td>
+          <button onclick="deleteDoctor('Dr. Utsav Pandit', 'row-Dr-Utsav-Pandit')">Delete</button>
+        </td>
+      </tr>
+      <tr id="row-Dr-Anushka-Tendulkar">
+        <td>Dr. Anushka Tendulkar</td>
+        <td>Therapist</td>
+        <td>doctor2@example.com</td>
+        <td>
+          <button onclick="deleteDoctor('Dr. Anushka Tendulkar', 'row-Dr-Anushka-Tendulkar')">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+    <!-- Manage Patients Section -->
+<section id="patients">
+  <h2>Manage Patients</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Patient Name</th>
+        <th>Age</th>
+        <th>Contact Info</th>
+        <th>Email</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="patient-list">
+      <tr id="row-Rohan-Sen">
+        <td>Rohan Sen</td>
+        <td>20</td>
+        <td>8956234568</td>
+        <td>patient1@gmail.com</td>
+        <td>
+          <button onclick="deletePatient('Rohan Sen', 'row-Rohan-Sen')">Delete</button>
+        </td>
+      </tr>
+      <tr id="row-Tanmoy-Sarkar">
+        <td>Tanmoy Sarkar</td>
+        <td>20</td>
+        <td>9832765689</td>
+        <td>patient2@gmail.com</td>
+        <td>
+          <button onclick="deletePatient('Tanmoy Sarkar', 'row-Tanmoy-Sarkar')">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="payment-history">
+  <h2>Payment History</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Patient Name</th>
+        <th>Amount</th>
+        <th>Date</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Tanmoy Sarkar</td>
+        <td>2000</td>
+        <td>2024-09-14</td>
+        <td>Paid</td>
+      </tr>
+      <tr>
+        <td>Rohan Sen</td>
+        <td>2000</td>
+        <td>2024-09-15</td>
+        <td>Paid</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+
+    <!-- Patient Feedback Section -->
+    <section id="feedback">
+      <h2>Patient Feedback</h2>
+      <div class="feedback-entry">
+        <p><strong>Tanmoy Sarkar:</strong> "Thank you for the excellent care. I felt supported and listened to."</p>
+      </div>
+      <div class="feedback-entry">
+        <p><strong>Rohan Sen:</strong> "My therapist was fantastic, and I'm feeling much better."</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Mental Health Management Portal</p>
+  </footer>
+  <script>
+    // Function to delete a doctor
+    function deleteDoctor(doctorName, rowId) {
+      const confirmation = confirm(`Are you sure you want to delete ${doctorName} from the database?`);
+      if (confirmation) {
+        // Remove the doctor row from the table
+        const row = document.getElementById(rowId);
+        row.remove();
+        alert(`${doctorName} has been successfully deleted from the database.`);
+      } else {
+        alert(`${doctorName} remains in the database.`);
+      }
+    }
+  </script>
+  <script>
+    // Function to confirm an appointment
+    function confirmAppointment(rowId, patientName) {
+      const statusCell = document.getElementById(`status-${rowId}`);
+      statusCell.textContent = 'Confirmed';
+      alert(`The appointment for ${patientName} has been successfully booked.`);
+    }
+  
+    // Function to remove an appointment
+    function removeAppointment(rowId, patientName) {
+      const confirmation = confirm(`Are you sure you want to remove ${patientName}'s appointment?`);
+      if (confirmation) {
+        // Remove the row from the table
+        const row = document.getElementById(`row-${rowId}`);
+        row.remove();
+        alert(`${patientName} has been removed from the appointment list.`);
+      } else {
+        alert(`The appointment for ${patientName} remains unchanged.`);
+      }
+    }
+    
+  </script>
+  <script>
+    // Function to delete a patient
+    function deletePatient(patientName, rowId) {
+      const confirmation = confirm(`Are you sure you want to delete ${patientName} from the patient list?`);
+      if (confirmation) {
+        // Remove the patient row from the table
+        const row = document.getElementById(rowId);
+        row.remove();
+        alert(`${patientName} has been successfully deleted from the patient list.`);
+      } else {
+        alert(`${patientName} remains in the patient list.`);
+      }
+    }
+  </script>
+  <script>
+    function processPayment() {
+      // Get input values
+      const patientName = document.getElementById('patient-name').value.trim();
+      const paymentAmount = document.getElementById('payment-amount').value.trim();
+      const paymentHistoryTable = document.querySelector('#payment-history tbody');
+  
+      // Validate input
+      if (!patientName || !paymentAmount || paymentAmount <= 0) {
+        alert('Please enter a valid patient name and payment amount.');
+        return;
+      }
+  
+      // Get current date
+      const currentDate = new Date().toISOString().split('T')[0];
+  
+      // Add new row to payment history table
+      const newRow = document.createElement('tr');
+      newRow.innerHTML = `
+        <td>${patientName}</td>
+        <td>${paymentAmount}</td>
+        <td>${currentDate}</td>
+        <td>Paid</td>
+      `;
+      paymentHistoryTable.appendChild(newRow);
+  
+      // Clear input fields
+      document.getElementById('patient-name').value = '';
+      document.getElementById('payment-amount').value = '';
+  
+      // Show success alert
+      alert(`Payment of ₹${paymentAmount} for ${patientName} has been processed successfully.`);
+    }
+  </script>
+  
+  
+</body>
+</html>
